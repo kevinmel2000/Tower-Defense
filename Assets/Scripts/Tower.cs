@@ -8,6 +8,6 @@ public class Tower : MonoBehaviour
     public void Damage(int dmg)
     {
         health -= dmg;
-        if (health <= 0) Destroy(GameObject);
+        if (health <= 0) Destroy(gameObject);
     }
 }
