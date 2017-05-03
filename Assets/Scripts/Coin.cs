@@ -1,16 +1,20 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Coin : MonoBehaviour {
+public class Coin : MonoBehaviour
+{
+    public int value;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public delegate void OnClickHandler(int coinValue);
+    public static event OnClickHandler Click;
+
+    void OnClick()
+    {
+        Click(value);
+    }
+
+    private void OnMouseDown()
+    {
+        OnClick();
+        Destroy(gameObject);
+    }
 }
